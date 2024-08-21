@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show The Answers</title>
+    <style>
+        .answer-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .answer {
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Your Generated Results (Total Tokens Used: {{ total_tokens }})</h1>
+
+<div class="answer-container">
+    <div class="answer">
+        <h2>Version 1</h2>
+        <div id="answer1">{{ cover_letter1|safe }}</div>
+        <div id="wordCount1"></div> <!-- Place for word count -->
+    </div>
+    <div class="answer">
+        <h2>Version 2</h2>
+        <div id="answer2">{{ cover_letter2|safe }}</div>
+        <div id="wordCount2"></div> <!-- Place for word count -->
+    </div>
+</div>
+
+<div id="loading" style="display:none;">
+    <h2>Loading...</h2>
+    <!-- You can add animations or fun facts here -->
+</div>
+
+<!--JavaScript-->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const answer1 = document.getElementById('answer1').innerText;
+        const answer2 = document.getElementById('answer2').innerText;
+
+        // Calculate and display word count
+        document.getElementById('wordCount1').innerText = "Word Count: " + answer1.split(/\s+/).filter(Boolean).length;
+        document.getElementById('wordCount2').innerText = "Word Count: " + answer2.split(/\s+/).filter(Boolean).length;
+    });
+</script>
+
+</body>
+</html>
