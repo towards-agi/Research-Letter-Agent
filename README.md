@@ -8,7 +8,7 @@ The **Research Letter Generator** is a Flask-based web application that helps us
 
 - **Resume Upload:** Users can upload their resume directly through the interface.
 - **Personalized Letters:** The application generates personalized research letters based on the user's resume, professor's research interests, and other inputs.
-- **Multiple GPT Models:** Support for both `gpt-3.5-turbo` and `gpt-4` models for letter generation.
+- **Multiple GPT Models:** Support for both `gpt-4o` and `gpt-4o-mini` models for letter generation.
 - **Google Scholar Integration:** Fetches academic information related to the professor using the SerpAPI Google Scholar engine.
 - **User-Friendly Interface:** Simple and intuitive frontend to make the letter generation process easy.
 
@@ -39,7 +39,7 @@ research_letter_generator/
 
 Before you begin, ensure you have met the following requirements:
 
-- **Python 3.7+**
+- **Python 3.11**: Make sure Python 3.11 is installed on your system.
 - **Flask**: Install Flask by running `pip install Flask`.
 - **OpenAI API Key**: You need an API key from [OpenAI](https://beta.openai.com/signup/).
 - **SerpAPI Key**: You need an API key from [SerpAPI](https://serpapi.com/).
@@ -53,7 +53,16 @@ Before you begin, ensure you have met the following requirements:
    cd research-letter-generator
    ```
 
-2. **Install Dependencies:**
+2. **Set Up a Virtual Environment:**
+
+   Create and activate a virtual environment to manage dependencies:
+
+   ```bash
+   python3.11 -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
+
+3. **Install Dependencies:**
 
    Install the required Python packages:
 
@@ -61,7 +70,7 @@ Before you begin, ensure you have met the following requirements:
    pip install -r requirements.txt
    ```
 
-3. **Set Up Configuration:**
+4. **Set Up Configuration:**
 
    Create a `.env` file in the root directory with your API keys:
 
@@ -71,7 +80,7 @@ Before you begin, ensure you have met the following requirements:
    OPENAI_API_KEY=your_openai_api_key
    ```
 
-4. **Run the Application:**
+5. **Run the Application:**
 
    Start the Flask server:
 
@@ -118,6 +127,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 If you have any questions or feedback, feel free to contact:
 
 - **Name:** 在学习的皮卡丘@小红书
+
 ---
 
 ### Additional Notes:
