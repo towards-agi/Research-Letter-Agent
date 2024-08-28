@@ -2,13 +2,13 @@
 
 ## 概述
 
-**陶瓷信生成器** 是非常方便的RAG框架下的基于 Flask 的网络应用程序，帮助用户生成个性化的研究兴趣信件。用户可以上传他们的简历，应用程序会根据相关的学术信息和研究兴趣，使用 OpenAI GPT 模型生成量身定制的信件。该工具旨在帮助学生申请研究机会、实习或助理职位，通过创建高质量、针对性强的信件提高竞争力。
+**陶瓷信生成器** 是一个基于 Flask 的网络应用程序，帮助用户生成个性化的研究兴趣信件。用户可以上传简历，应用程序会根据相关的学术信息和研究兴趣，使用 OpenAI GPT 模型生成量身定制的信件。该工具旨在帮助学生申请研究机会、实习或助理职位，通过创建高质量、针对性强的信件提高竞争力。
 
 ## 功能
 
 - **简历上传**：用户可以通过界面直接上传简历。
 - **个性化信件**：应用程序根据用户简历、教授的研究兴趣和其他输入生成个性化的研究信件。
-- **多种 GPT 模型支持**：支持 `gpt-3.5-turbo` 和 `gpt-4` 模型生成信件。
+- **多种 GPT 模型支持**：支持 `gpt-4o` 和 `gpt-4o-mini` 模型生成信件。
 - **Google Scholar 集成**：使用 SerpAPI 的 Google Scholar 引擎获取教授的相关学术信息。
 - **用户友好界面**：简单直观的前端设计，使信件生成过程更加容易。
 
@@ -39,7 +39,7 @@ research_letter_generator/
 
 在开始之前，请确保您满足以下要求：
 
-- **Python 3.7+**
+- **Python 3.11**: 确保您的系统已安装 Python 3.11。
 - **Flask**: 通过运行 `pip install Flask` 安装 Flask。
 - **OpenAI API 密钥**：需要从 [OpenAI](https://beta.openai.com/signup/) 获取 API 密钥。
 - **SerpAPI 密钥**：需要从 [SerpAPI](https://serpapi.com/) 获取 API 密钥。
@@ -53,7 +53,16 @@ research_letter_generator/
    cd research-letter-generator
    ```
 
-2. **安装依赖项：**
+2. **设置虚拟环境：**
+
+   创建并激活虚拟环境以管理依赖项：
+
+   ```bash
+   python3.11 -m venv venv
+   source venv/bin/activate  # Windows 系统使用 `venv\Scripts\activate`
+   ```
+
+3. **安装依赖项：**
 
    安装所需的 Python 包：
 
@@ -61,7 +70,7 @@ research_letter_generator/
    pip install -r requirements.txt
    ```
 
-3. **设置配置文件：**
+4. **设置配置文件：**
 
    在项目根目录下创建 `.env` 文件，并添加您的 API 密钥：
 
@@ -71,7 +80,7 @@ research_letter_generator/
    OPENAI_API_KEY=your_openai_api_key
    ```
 
-4. **运行应用程序：**
+5. **运行应用程序：**
 
    启动 Flask 服务器：
 
@@ -125,5 +134,3 @@ research_letter_generator/
 
 - **错误处理**：请确保所有异常，特别是涉及外部 API 调用的异常，都能被妥善处理。
 - **安全性**：在部署到生产环境时，请记得对您的应用程序进行安全设置。
-
-这个 README 以中文提供了清晰的指导，使其他人能够轻松理解该项目的目的和功能。
