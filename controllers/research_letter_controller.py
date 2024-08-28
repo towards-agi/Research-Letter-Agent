@@ -13,17 +13,17 @@ def research_interest_advanced():
         special_pref = request.form.get('special_pref')
         model = request.form.get('model')
 
-        # Handling resume upload
-        resume_file = request.files.get('resume')
-        if not resume_file or resume_file.filename == '':
-            flash("No selected file or no file part")
+        # Get the resume content from the textbox
+        resume_content = request.form.get('resume')
+        if not resume_content or resume_content.strip() == '':
+            flash("Resume content cannot be empty.")
             return redirect(request.url)
 
-        resume_content = resume_file.read().decode('utf-8')  # Assuming resume is in text format
-
         letters = generate_research_letter(name, prof_name, university, model, special_pref, resume_content)
+
         if not letters:
             flash("Failed to generate the letter.")
             return redirect(request.url)
 
-        return render_template("showCL.html", cover_letter1=letters[0], cover_letter2=letters[1], total_tokens=52013124)
+        return render_template("showCL.html", cover_letter1=letters[0], cover_letter2=letters[1])
+
