@@ -1,5 +1,6 @@
 from services.serp_api_service import get_academic_info
 from services.openai_service import generate_response
+from textwrap import wrap
 
 def generate_research_letter(name, prof_name, university, model, special_pref, resume):
     N = 10
@@ -35,6 +36,16 @@ def generate_research_letter(name, prof_name, university, model, special_pref, r
     user_prompt = f"Here’s the publications by Professor {prof_name} from {university}: {academic_info} \n Here's my resume: {resume}"
 
     letter_1, _ = generate_response(system_prompt, user_prompt, model)
+    letter_1 = format_paragraphs(letter_1)
     letter_2, _ = generate_response(system_prompt, user_prompt, model)
+    letter_2 = format_paragraphs(letter_2)
     
     return letter_1, letter_2
+
+def format_paragraphs(text, width=80):
+    paragraphs = text.split('\n')
+    formatted_paragraphs = []
+    for paragraph in paragraphs:
+        lines = wrap(paragraph, width)
+        formatted_paragraphs.append('<p>{}</p>'.format('</br>'.join(lines)))
+    return ''.join(formatted_paragraphs)
