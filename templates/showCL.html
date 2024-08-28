@@ -1,31 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Show The Answers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Research Letter</title>
     <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #4CAF50;
+            margin-top: 20px;
+            text-align: center;
+        }
         .answer-container {
             display: flex;
             justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
         .answer {
             width: 48%;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        #loading {
+            text-align: center;
+            margin-top: 50px;
+        }
+        #loading h2 {
+            color: #888;
         }
     </style>
 </head>
 <body>
 
-<h1>Your Generated Results (Total Tokens Used: {{ total_tokens }})</h1>
+<h1>Your Research Letter! 皮卡丘祝你好运🍀</h1>
 
 <div class="answer-container">
     <div class="answer">
         <h2>Version 1</h2>
         <div id="answer1">{{ cover_letter1|safe }}</div>
-        <div id="wordCount1"></div> <!-- Place for word count -->
+        <div id="wordCount1" class="word-count"></div>
     </div>
     <div class="answer">
         <h2>Version 2</h2>
         <div id="answer2">{{ cover_letter2|safe }}</div>
-        <div id="wordCount2"></div> <!-- Place for word count -->
+        <div id="wordCount2" class="word-count"></div>
     </div>
 </div>
 
@@ -34,7 +75,6 @@
     <!-- You can add animations or fun facts here -->
 </div>
 
-<!--JavaScript-->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const answer1 = document.getElementById('answer1').innerText;
